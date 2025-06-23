@@ -30,21 +30,36 @@
 
     <div class="col">
         <div class="mb-5">
-            <h3>Add your solution to question 2 here</h3>
-
-            <p><button>Increment number by 1</button></p>
-            <p><span>1</span></p>
+             <form method="post" asp-action="Increment">
+            <button class="btn-class" type="submit">Counter</button>
+        </form>
+        <br/>
+        <p>Count: @ViewBag.Count</p>
             <hr/>
+        <h3>Add your solution to question 2 here</h3>
+        <p>
+            Here I modified 3 files HomeController,Index.cshtml and Program.cs
+Added new functionality for setting the counter while we click the button. For capturing the counter I used session feature in controller.Intially set the session value into zero and each click it incremented one.Once it incremented put the counter value into aviewBag and send to view.
+View page used this view bag value and display in the screen.
+For adding session in the controller I made changes in program.cs file as well. 
+        </p>
         </div>
 
         <div class="mb-5">
             <h3>Add your solution to question 3 here</h3>
+            <p>
+            Here I created new file in view named as Clicks.cshtml and display the view bag value under the text.This value we fetch from controller.
+            For Navigating to the respective file I just added new nav link on the shared html file in layout folder.
+        </p>
             <hr/>
         </div>
 
         <div class="mb-5">
             <h4>How did you find this assessment?</h4>
-            @* Write here *@
+            <p>I found the assessment quite straightforward. The questions were clear, it test the ability of critical thinking and integration of developer."</p>
         </div>
+    </div>
+    <div class="col">
+       
     </div>
 </div>

@@ -15,6 +15,8 @@ namespace Web.Controllers
 
         public IActionResult Index()
         {
+            int count = HttpContext.Session.GetInt32("count") ?? 0;
+            ViewBag.Count = count;
             return View();
         }
 
@@ -22,6 +24,40 @@ namespace Web.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Increment()
+        {
+            int count = HttpContext.Session.GetInt32("count") ?? 0;
+            count++;
+            HttpContext.Session.SetInt32("count", count);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Clicks()
+        {
+           int count = HttpContext.Session.GetInt32("count") ?? 0;
+           ViewBag.Count = count;
+           return View();
+        }
+
+        [HttpPost]
+        public IActionResult ReverseString(string input)
+        {
+           ViewBag.Input = input;
+           ViewBag.Reversed = new string(input.Reverse().ToArray());
+           ViewBag.WordsReversed = string.Join(" ", input.Split(' ').Reverse());
+           return View("Reverse");
+        }
+
+ 
+        public IActionResult Reverse()
+        {
+           
+            return View();
+        }
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
